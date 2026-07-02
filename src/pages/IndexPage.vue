@@ -1,23 +1,48 @@
 <template>
-  <q-page class="flex flex-center">
-    <div class="column items-center">
-      <img
-        alt="Quasar logo"
-        src="~@/assets/quasar-logo-vertical.svg"
-        style="width: 200px; height: 200px"
-      />
+  <q-page padding class="q-pa-md">
+    <q-tabs v-model="tab" no-caps class="shadow-2">
+      <q-tab name="summary" label="Summary" />
+      <q-tab name="addTransaction" label="Add Transaction" />
+      <q-tab name="transactions" label="Transactions" />
+    </q-tabs>
+    <q-separator />
+    <q-tab-panels v-model="tab" animated>
+      <q-tab-panel name="summary" class="q-pl-none q-pr-none">
+        <summary-report />
+      </q-tab-panel>
 
-      <q-btn
-        class="q-mt-md"
-        color="primary"
-        to="/second"
-        label="Go to Second Page"
-        no-caps
-      />
-    </div>
+      <q-tab-panel name="addTransaction" class="q-pl-none q-pr-none">
+        <div class="q-gutter-sm q-mb-sm">
+          <q-radio v-model="radio" val="default" label="Default" />
+          <q-radio v-model="radio" val="mustPay" label="For Must Pay" />
+          <q-radio v-model="radio" val="transfer" label="Transfer" />
+        </div>
+        <q-card v-if="radio === 'default'" class="q-pa-xs">
+          <add-transaction />
+        </q-card>
+        <q-card v-if="radio === 'mustPay'" class="q-pa-xs">
+          <add-mustpay-transaction />
+        </q-card>
+        <q-card v-if="radio === 'transfer'" class="q-pa-xs">
+          <transfer-form />
+        </q-card>
+      </q-tab-panel>
+
+      <q-tab-panel name="transactions" class="q-pl-none q-pr-none">
+        <transaction-list />
+      </q-tab-panel>
+    </q-tab-panels>
   </q-page>
 </template>
 
 <script setup lang="ts">
-//
+import { ref } from 'vue';
+import SummaryReport from 'src/components/SummaryReport.vue';
+import AddTransaction from 'src/components/AddTransaction.vue';
+import AddMustpayTransaction from 'src/components/AddMustpayTransaction.vue';
+import TransferForm from 'src/components/TransferForm.vue';
+import TransactionList from 'src/components/TransactionList.vue';
+
+const tab = ref('summary');
+const radio = ref('default');
 </script>

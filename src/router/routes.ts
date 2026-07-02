@@ -6,16 +6,23 @@ const routes: RouteRecordRaw[] = [
     component: () => import("@/layouts/MainLayout.vue"),
     children: [
       { path: "", component: () => import("@/pages/IndexPage.vue") },
-      { path: "second", component: () => import("@/pages/SecondPage.vue") }
-    ]
+    ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
+  {
+    path: "/login",
+    component: () => import("@/pages/Login.vue"),
+  },
+
+  {
+    path: "/logout",
+    component: () => import("@/pages/Logout.vue"),
+  },
+
   {
     path: "/:catchAll(.*)*",
-    component: () => import("@/pages/ErrorNotFound.vue")
-  }
+    component: () => import("@/pages/ErrorNotFound.vue"),
+  },
 ];
 
 export default routes;
