@@ -37,11 +37,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import SummaryReport from 'src/components/SummaryReport.vue';
-import AddTransaction from 'src/components/AddTransaction.vue';
-import AddMustpayTransaction from 'src/components/AddMustpayTransaction.vue';
-import TransferForm from 'src/components/TransferForm.vue';
-import TransactionList from 'src/components/TransactionList.vue';
+import SummaryReport from '@/components/SummaryReport.vue';
+import AddTransaction from '@/components/AddTransaction.vue';
+import AddMustpayTransaction from '@/components/AddMustpayTransaction.vue';
+import TransferForm from '@/components/TransferForm.vue';
+import TransactionList from '@/components/TransactionList.vue';
 
 const tab = ref('summary');
 const radio = ref('default');

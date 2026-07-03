@@ -14,7 +14,9 @@ const session = authClient.useSession();
 watch(
   () => session.value.data,
   (data) => {
-    if (!data && route.path !== '/login') {
+    if (data && route.path === '/login') {
+      void router.push('/');
+    } else if (!data && route.path !== '/login') {
       void router.push('/login');
     }
   },

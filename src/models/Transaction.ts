@@ -17,14 +17,14 @@ export interface Transaction {
 }
 
 export interface CreateTransactionRequest {
-  walletId?: string;
-  delegatedWalletId?: string;
+  walletId?: string | undefined;
+  delegatedWalletId?: string | undefined;
   amount: number;
-  currencyId?: string;
-  date?: number;
+  currencyId?: string | undefined;
+  date?: number | undefined;
   note: string;
-  categoryId?: string;
-  monthPeriodId?: string;
+  categoryId?: string | undefined;
+  monthPeriodId?: string | undefined;
 }
 
 export interface TransferRequest {
