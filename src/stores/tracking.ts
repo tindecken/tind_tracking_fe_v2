@@ -131,6 +131,18 @@ export const useTrackingStore = defineStore("tracking", {
       }
     },
 
+    async reconcileWallets(items: { walletId: string; balance: number }[]) {
+      try {
+        const res = await api.post("/tind_tracking/transactions/reconcile", items, {
+          withCredentials: true,
+        });
+        return res.data as GenericResponseData<any>;
+      } catch (error) {
+        console.error("Failed to reconcile:", error);
+        throw error;
+      }
+    },
+
     async fetchInitialData() {
       this.loading = true;
       try {
