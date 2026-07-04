@@ -25,6 +25,7 @@ export interface CreateTransactionRequest {
   note: string;
   categoryId?: string | undefined;
   monthPeriodId?: string | undefined;
+  mustPayTransactionId?: string | undefined;
 }
 
 export interface TransferRequest {

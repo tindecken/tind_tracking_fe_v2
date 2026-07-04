@@ -144,11 +144,10 @@ export const useTrackingStore = defineStore("tracking", {
       }
     },
 
-    async fetchTransactions(page = 1, limit = 20) {
+    async fetchTransactions() {
       this.loading = true;
       try {
         const res = await api.get("/tind_tracking/transactions", {
-          params: { page, limit },
           withCredentials: true,
         });
         const data = res.data as GenericResponseData<Transaction[]>;

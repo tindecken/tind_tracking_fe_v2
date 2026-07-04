@@ -14,14 +14,10 @@
       <q-tab-panel name="addTransaction" class="q-pl-none q-pr-none">
         <div class="q-gutter-sm q-mb-sm">
           <q-radio v-model="radio" val="default" label="Default" />
-          <q-radio v-model="radio" val="mustPay" label="For Must Pay" />
           <q-radio v-model="radio" val="transfer" label="Transfer" />
         </div>
         <q-card v-if="radio === 'default'" class="q-pa-xs">
           <add-transaction />
-        </q-card>
-        <q-card v-if="radio === 'mustPay'" class="q-pa-xs">
-          <add-mustpay-transaction />
         </q-card>
         <q-card v-if="radio === 'transfer'" class="q-pa-xs">
           <transfer-form />
@@ -39,7 +35,6 @@
 import { ref } from 'vue';
 import SummaryReport from '@/components/SummaryReport.vue';
 import AddTransaction from '@/components/AddTransaction.vue';
-import AddMustpayTransaction from '@/components/AddMustpayTransaction.vue';
 import TransferForm from '@/components/TransferForm.vue';
 import TransactionList from '@/components/TransactionList.vue';
 
