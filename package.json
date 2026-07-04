@@ -27,14 +27,14 @@
     "axios": "^1.18.1",
     "better-auth": "^1.6.23",
     "pinia": "^3.0.1",
-    "quasar": "^2.20.3",
+    "quasar": "^2.21.0",
     "vue": "^3.5.22",
     "vue-i18n": "^11.3.0",
     "vue-router": "^5.0.6"
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^11.0.0",
-    "@quasar/app-vite": "3.0.0-rc.5",
+    "@quasar/app-vite": "3.0.0-rc.6",
     "@types/node": "^22.19.11",
     "autoprefixer": "^10.4.27",
     "oxfmt": "^0.x",
