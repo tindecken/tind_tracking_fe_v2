@@ -107,7 +107,8 @@ const columns: QTableColumn[] = [
     align: "left",
     field: "date",
     sortable: true,
-    style: "max-width: 70px"
+    style: "max-width: 40px;",
+    headerStyle: "max-width: 40px;"
   },
   {
     name: "note",
