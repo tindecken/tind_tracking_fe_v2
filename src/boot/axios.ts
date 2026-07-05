@@ -1,7 +1,7 @@
-import { defineBoot } from '#q-app';
-import axios, { type AxiosInstance } from 'axios';
+import { defineBoot } from "#q-app";
+import axios, { type AxiosInstance } from "axios";
 
-declare module 'vue' {
+declare module "vue" {
   interface ComponentCustomProperties {
     $axios: AxiosInstance;
     $api: AxiosInstance;
@@ -9,7 +9,9 @@ declare module 'vue' {
 }
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8787',
+  baseURL:
+    import.meta.env.VITE_API_BASE_URL ??
+    "https://tindapi-production.tindecken.workers.dev",
   withCredentials: true,
 });
 

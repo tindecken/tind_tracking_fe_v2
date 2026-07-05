@@ -6,6 +6,7 @@ if (import.meta.env.VITE_API_BASE_URL) {
 }
 export const authClient = createAuthClient({
   baseURL:
-    (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8787") +
+    (import.meta.env.VITE_API_BASE_URL ??
+      "https://tindapi-production.tindecken.workers.dev") +
     "/tind_tracking/auth",
 });
