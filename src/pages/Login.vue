@@ -2,6 +2,7 @@
   <q-layout>
     <q-page-container>
       <q-page class="row items-center justify-center">
+        <div class="debug">{{ authUrl }}</div>
         <div class="login-card">
           <p class="text-h5 q-mb-md text-grey-7 text-center">Tind Tracking</p>
 
@@ -63,15 +64,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { authClient } from '@/boot/auth';
+import { ref } from "vue";
+import { useQuasar } from "quasar";
+import { authClient } from "@/boot/auth";
 
-const tab = ref('email');
+const authUrl =
+  (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8787") +
+  "/tind_tracking/auth";
+const $q = useQuasar();
+const tab = ref("email");
 const loading = ref(false);
 const form = ref({
-  email: '',
-  password: '',
-  rememberMe: false,
+  email: "",
+  password: "",
+  rememberMe: false
 });
 
 const signInWithEmail = async () => {
@@ -80,8 +86,12 @@ const signInWithEmail = async () => {
     await authClient.signIn.email({
       email: form.value.email,
       password: form.value.password,
-      rememberMe: form.value.rememberMe,
+      rememberMe: form.value.rememberMe
     });
+  } catch (err: any) {
+    const message =
+      err?.response?.data?.message ?? err?.message ?? "Login failed";
+    $q.notify({ type: "negative", message });
   } finally {
     loading.value = false;
   }
@@ -89,8 +99,8 @@ const signInWithEmail = async () => {
 
 const signInWithGoogle = async () => {
   await authClient.signIn.social({
-    provider: 'google',
-    callbackURL: window.location.href,
+    provider: "google",
+    callbackURL: window.location.href
   });
 };
 </script>
