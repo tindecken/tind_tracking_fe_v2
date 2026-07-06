@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="q-pa-md">
+  <q-page padding class="q-pa-none">
     <q-tabs v-model="tab" no-caps class="shadow-2">
       <q-tab name="summary" label="Summary" />
       <q-tab name="addTransaction" label="Add Transaction" />
@@ -36,13 +36,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import SummaryReport from '@/components/SummaryReport.vue';
-import AddTransaction from '@/components/AddTransaction.vue';
-import TransferForm from '@/components/TransferForm.vue';
-import ReconcileForm from '@/components/ReconcileForm.vue';
-import TransactionList from '@/components/TransactionList.vue';
+import { ref } from "vue";
+import SummaryReport from "@/components/SummaryReport.vue";
+import AddTransaction from "@/components/AddTransaction.vue";
+import TransferForm from "@/components/TransferForm.vue";
+import ReconcileForm from "@/components/ReconcileForm.vue";
+import TransactionList from "@/components/TransactionList.vue";
 
-const tab = ref('summary');
-const radio = ref('default');
+const tab = ref("summary");
+const radio = ref("default");
 </script>
