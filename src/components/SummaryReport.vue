@@ -68,15 +68,15 @@
           hide-header
           hide-no-data
           :rows-per-page-options="[0]"
-          style="width: 200px"
+          style="width: 155px"
           class="mustpay-table"
         >
           <template v-slot:top>
             <span class="text-subtitle2 text-weight-medium">Must Pay</span>
             <q-space />
-            <span class="text-subtitle2 text-weight-medium"
-              >Total: {{ formatNumber(store.summary?.mustpay ?? 0) }}</span
-            >
+            <span class="text-subtitle2 text-weight-medium">{{
+              formatNumber(store.summary?.mustpay ?? 0)
+            }}</span>
           </template>
           <template v-slot:body="props">
             <q-tr
