@@ -13,7 +13,7 @@
       No data available
     </div>
 
-    <div v-else class="row q-col-gutter-sm">
+    <div v-else class="row q-col-gutter-xs">
       <div class="col-auto">
         <q-table
           :rows="summaryRows"
@@ -25,7 +25,7 @@
           flat
           bordered
           :rows-per-page-options="[0]"
-          style="width: 180px"
+          style="width: 150px"
           class="summary-table"
         >
           <template v-slot:top>
@@ -143,7 +143,7 @@ const mustPayRows = computed(() => {
   if (!store.summary) return [];
   const rows = store.summary.mustPayItems.map(item => ({
     name: item.name,
-    amount: formatNumber(item.amount),
+    amount: formatNumber(item.amount)
   }));
   if (store.summary.delegatedWallets.length > 0) {
     store.summary.delegatedWallets.forEach(w => {

@@ -88,7 +88,13 @@
       dense
     />
 
-    <q-input v-model="form.date" type="date" label="Date" :max="maxDate" dense />
+    <q-input
+      v-model="form.date"
+      type="date"
+      label="Date"
+      :max="maxDate"
+      dense
+    />
 
     <div class="q-mt-lg">
       <q-btn
@@ -121,8 +127,8 @@ const store = useTrackingStore();
 const today = () => {
   const d = new Date();
   const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
   return `${y}-${m}-${day}`;
 };
 

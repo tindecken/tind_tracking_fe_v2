@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="q-pa-none">
+  <q-page padding class="q-pt-md">
     <q-tabs v-model="tab" no-caps class="shadow-2">
       <q-tab name="summary" label="Summary" />
       <q-tab name="addTransaction" label="Add Transaction" />
