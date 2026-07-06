@@ -12,6 +12,6 @@
 .mobile-container {
   max-width: 480px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 5px;
 }
 </style>
