@@ -25,7 +25,7 @@
           flat
           bordered
           :rows-per-page-options="[0]"
-          style="width: 150px"
+          style="width: 154px"
           class="summary-table"
         >
           <template v-slot:top>
@@ -68,7 +68,7 @@
           hide-header
           hide-no-data
           :rows-per-page-options="[0]"
-          style="width: 155px"
+          style="width: 159px"
           class="mustpay-table"
         >
           <template v-slot:top>
