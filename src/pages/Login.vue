@@ -2,8 +2,8 @@
   <q-layout>
     <q-page-container>
       <q-page class="row items-center justify-center">
-        <div class="debug">{{ authUrl }}</div>
         <div class="login-card">
+          <div class="debug">{{ authUrl }}</div>
           <p class="text-h5 q-mb-md text-grey-7 text-center">Tind Tracking</p>
 
           <q-tabs v-model="tab" dense no-caps class="q-mb-md">
@@ -68,9 +68,7 @@ import { ref } from "vue";
 import { useQuasar } from "quasar";
 import { authClient } from "@/boot/auth";
 
-const authUrl =
-  (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8787") +
-  "/tind_tracking/auth";
+const authUrl = import.meta.env.API_URL;
 const $q = useQuasar();
 const tab = ref("email");
 const loading = ref(false);

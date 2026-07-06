@@ -9,9 +9,7 @@ declare module "vue" {
 }
 
 const api = axios.create({
-  baseURL:
-    import.meta.env.VITE_API_BASE_URL ??
-    "https://tindapi-production.tindecken.workers.dev",
+  baseURL: import.meta.env.API_URL,
   withCredentials: true,
 });
 

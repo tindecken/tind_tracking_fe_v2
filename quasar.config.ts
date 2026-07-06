@@ -3,38 +3,40 @@
 
 import { defineConfig } from "#q-app";
 
-export default defineConfig(ctx => {
+export default defineConfig((ctx) => {
   return {
     boot: ["axios", "auth"],
 
     css: ["app.scss"],
 
-    extras: [
-      "roboto-font",
-      "material-icons"
-    ],
+    extras: ["roboto-font", "material-icons"],
 
     build: {
       typescript: {
         strict: true,
-        vueShim: true
+        vueShim: true,
       },
 
       vueRouterMode: "hash",
+      defineEnv: {
+        API_URL: ctx.dev
+          ? "http://192.168.1.3:8787"
+          : "https://tindapi-production.tindecken.workers.dev",
+      },
     },
 
     devServer: {
-      open: true
+      open: false, // opens browser window automatically
     },
 
     framework: {
       config: {
         notify: {
-          position: "bottom"
-        }
+          position: "bottom",
+        },
       },
 
-      plugins: ["Notify"]
+      plugins: ["Notify"],
     },
 
     animations: [],
@@ -42,15 +44,15 @@ export default defineConfig(ctx => {
     ssr: {
       prodPort: 3000,
       middlewares: ["render"],
-      pwa: false
+      pwa: false,
     },
 
     pwa: {
-      workboxMode: "GenerateSW"
+      workboxMode: "GenerateSW",
     },
 
     capacitor: {
-      hideSplashscreen: true
+      hideSplashscreen: true,
     },
 
     electron: {
@@ -59,12 +61,12 @@ export default defineConfig(ctx => {
       bundler: "packager",
       packager: {},
       builder: {
-        appId: "tind_tracking_fe_v2"
-      }
+        appId: "tind_tracking_fe_v2",
+      },
     },
 
     bex: {
-      extraScripts: []
-    }
+      extraScripts: [],
+    },
   };
 });
