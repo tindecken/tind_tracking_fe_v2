@@ -21,7 +21,7 @@ export default defineConfig((ctx) => {
       defineEnv: {
         API_URL: ctx.dev
           ? "http://192.168.1.3:8787"
-          : "https://tindapi-production.tindecken.workers.dev",
+          : "https://tindapi.tindecken.com",
       },
     },
 
