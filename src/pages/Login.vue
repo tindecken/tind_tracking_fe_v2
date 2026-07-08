@@ -3,7 +3,6 @@
     <q-page-container>
       <q-page class="row items-center justify-center">
         <div class="login-card">
-          <div class="debug">{{ authUrl }}</div>
           <p class="text-h5 q-mb-md text-grey-7 text-center">Tind Tracking</p>
 
           <q-tabs v-model="tab" dense no-caps class="q-mb-md">
