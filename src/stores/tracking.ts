@@ -31,6 +31,7 @@ export const useTrackingStore = defineStore("tracking", {
     perDay: 0,
     dayLeft: 0,
     mustPayItems: [] as MustPayItem[],
+    monthPeriods: [] as MonthPeriod[],
     summary: null as WalletSummaryData | null,
     transactions: [] as Transaction[],
     totalTransactions: 0,
@@ -205,6 +206,62 @@ export const useTrackingStore = defineStore("tracking", {
       } catch (error) {
         console.error("Failed to fetch current month period:", error);
       }
+    },
+
+    async fetchAllMonthPeriods() {
+      try {
+        const res = await api.get("/tind_tracking/month-periods", {
+          params: { limit: '100' },
+          withCredentials: true,
+        });
+        const data = res.data as GenericResponseData<MonthPeriod[]>;
+        if (data.success) {
+          this.monthPeriods = data.data;
+        }
+        return data;
+      } catch (error) {
+        console.error("Failed to fetch month periods:", error);
+      }
+    },
+
+    async createMonthPeriod(payload: { name: string; startDate: number; endDate: number; isActive?: boolean }) {
+      const res = await api.post("/tind_tracking/month-periods", payload, { withCredentials: true });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async updateMonthPeriod(payload: { id: string; name?: string; startDate?: number; endDate?: number; isActive?: boolean }) {
+      const res = await api.put("/tind_tracking/month-periods", payload, { withCredentials: true });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async deleteMonthPeriod(id: string) {
+      const res = await api.delete("/tind_tracking/month-periods", { data: { id }, withCredentials: true });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async createMustPay(payload: { name: string; targetAmount: number; monthPeriodId?: string; currencyId?: string; categoryId?: string }) {
+      const res = await api.post("/tind_tracking/mustpay", payload, { withCredentials: true });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async updateMustPay(payload: { id: string; name?: string; targetAmount?: number; remainingAmount?: number; currencyId?: string; categoryId?: string }) {
+      const res = await api.put("/tind_tracking/mustpay", payload, { withCredentials: true });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async deleteMustPay(id: string) {
+      const res = await api.delete("/tind_tracking/mustpay", { data: { id }, withCredentials: true });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async undoCTransactions(transactionIds: string[]) {
+      const res = await api.post("/tind_tracking/transactions/undo", transactionIds.map((id) => ({ transactionId: id })), { withCredentials: true });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async deleteTransactions(transactionIds: string[]) {
+      const res = await api.delete("/tind_tracking/transactions", { data: { transactionIds }, withCredentials: true });
+      return res.data as GenericResponseData<any>;
     },
   },
 });
