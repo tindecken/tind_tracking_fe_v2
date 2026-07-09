@@ -20,8 +20,8 @@ export default defineConfig((ctx) => {
       vueRouterMode: "hash",
       defineEnv: {
         API_URL: ctx.dev
-          ? "http://192.168.1.3:8787"
-          : "https://tindapi-production.tindecken.workers.dev",
+          ? "https://tindapi.tindecken.com"
+          : "https://tindapi.tindecken.com",
       },
     },
 
@@ -36,7 +36,7 @@ export default defineConfig((ctx) => {
         },
       },
 
-      plugins: ["Notify"],
+      plugins: ["Notify", "Dialog"],
     },
 
     animations: [],

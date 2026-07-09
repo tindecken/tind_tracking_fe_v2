@@ -1,10 +1,15 @@
 <template>
   <q-page padding class="q-pt-md">
-    <q-tabs v-model="tab" no-caps class="shadow-2">
-      <q-tab name="summary" label="Summary" />
-      <q-tab name="addTransaction" label="Add Transaction" />
-      <q-tab name="transactions" label="Transactions" />
-    </q-tabs>
+    <div class="row items-center">
+      <div class="col">
+        <q-tabs v-model="tab" no-caps class="shadow-2">
+          <q-tab name="summary" label="Summary" />
+          <q-tab name="addTransaction" label="Add Transaction" />
+          <q-tab name="transactions" label="Transactions" />
+        </q-tabs>
+      </div>
+      <q-btn flat round icon="settings" @click="$router.push('/settings')" />
+    </div>
     <q-separator />
     <q-tab-panels v-model="tab" animated>
       <q-tab-panel name="summary" class="q-pl-none q-pr-none">
@@ -46,3 +51,14 @@ import TransactionList from "@/components/TransactionList.vue";
 const tab = ref("summary");
 const radio = ref("default");
 </script>
+<style lang="scss" scoped>
+.q-page {
+  --safe-area-top: env(safe-area-inset-top);
+  --safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+.q-page {
+  /* Pushes content below the camera notch */
+  padding-top: var(--safe-area-top);
+}
+</style>
