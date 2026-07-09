@@ -79,6 +79,10 @@ const formatDate = (dateStr: string): string => {
   return String(d.getDate());
 };
 
+const getWalletName = (walletId: string): string => {
+  return store.wallets.find((w) => w.id === walletId)?.name ?? "";
+};
+
 const store = useTrackingStore();
 const loading = ref(false);
 const error = ref<string | null>(null);
@@ -119,6 +123,13 @@ const columns: QTableColumn[] = [
     sortable: true,
     style:
       "max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
+  },
+  {
+    name: "wallet",
+    label: "Wallet",
+    field: (row: { walletId: string }) => getWalletName(row.walletId),
+    align: "left",
+    sortable: true
   },
   {
     name: "amount",

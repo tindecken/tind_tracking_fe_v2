@@ -1,6 +1,7 @@
 # Taste (Continuously Learned by [CommandCode][cmd])
 
 [cmd]: https://commandcode.ai/
+
 
 # Code Style
 - Use `@/` path alias (not `src/`) for imports from the src directory. Confidence: 0.85
