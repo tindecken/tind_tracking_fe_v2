@@ -14,6 +14,8 @@ const session = authClient.useSession();
 watch(
   () => session.value.data,
   (data) => {
+    if (session.value.isPending) return;
+
     if (data && route.path === '/login') {
       void router.push('/');
     } else if (!data && route.path !== '/login') {
