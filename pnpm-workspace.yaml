@@ -8,3 +8,5 @@ allowBuilds:
   lightningcss: true
   rolldown: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - quasar@2.21.2
