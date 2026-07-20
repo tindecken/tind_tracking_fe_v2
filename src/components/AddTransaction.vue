@@ -227,6 +227,10 @@ watch(
   val => {
     if (val) {
       form.value.delegatedWalletId = null;
+      const mustPayItem = store.mustPayItems.find(m => m.id === val);
+      if (mustPayItem) {
+        form.value.note = mustPayItem.name;
+      }
     }
   }
 );
