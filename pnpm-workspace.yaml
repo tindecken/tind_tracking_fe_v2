@@ -9,4 +9,4 @@ allowBuilds:
   rolldown: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - quasar@2.21.2
+  - quasar@2.21.2 || 2.21.3
