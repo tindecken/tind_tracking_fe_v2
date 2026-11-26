@@ -52,7 +52,18 @@
       emit-value
       map-options
       dense
-    />
+    >
+      <template v-slot:option="scope">
+        <q-item v-bind="scope.itemProps">
+          <q-item-section>
+            <q-item-label>{{ scope.opt.name }}</q-item-label>
+            <q-item-label caption>
+              {{ formatNumber(scope.opt.balance) }}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+      </template>
+    </q-select>
 
     <q-select
       v-model="form.delegatedWalletId"
