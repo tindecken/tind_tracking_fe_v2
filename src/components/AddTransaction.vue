@@ -69,6 +69,7 @@
     />
 
     <q-select
+      v-show="false"
       v-model="form.categoryId"
       :options="categoryOptions"
       label="Category"
@@ -81,6 +82,7 @@
     />
 
     <q-input
+      v-show="false"
       v-model="currentMonthPeriodName"
       label="Month Period"
       readonly
