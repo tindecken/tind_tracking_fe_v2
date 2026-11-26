@@ -8,6 +8,7 @@
       <q-tab name="monthPeriods" label="Month Periods" />
       <q-tab name="mustPay" label="Must Pay" />
       <q-tab name="transactions" label="Transactions" />
+      <q-tab name="wallets" label="Wallets" />
     </q-tabs>
     <q-separator />
     <q-tab-panels v-model="tab" animated>
@@ -20,6 +21,9 @@
       <q-tab-panel name="transactions" class="q-pl-none q-pr-none">
         <transaction-settings />
       </q-tab-panel>
+      <q-tab-panel name="wallets" class="q-pl-none q-pr-none">
+        <wallet-settings />
+      </q-tab-panel>
     </q-tab-panels>
   </q-page>
 </template>
@@ -29,6 +33,7 @@ import { ref } from 'vue';
 import MonthPeriodSettings from '@/components/settings/MonthPeriodSettings.vue';
 import MustpaySettings from '@/components/settings/MustpaySettings.vue';
 import TransactionSettings from '@/components/settings/TransactionSettings.vue';
+import WalletSettings from '@/components/settings/WalletSettings.vue';
 
 const tab = ref('monthPeriods');
 </script>

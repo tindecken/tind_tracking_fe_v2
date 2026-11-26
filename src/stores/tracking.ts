@@ -56,6 +56,21 @@ export const useTrackingStore = defineStore("tracking", {
       }
     },
 
+    async createWallet(payload: { name: string; balance: number }) {
+      const res = await api.post("/tind_tracking/wallets", payload, {
+        withCredentials: true,
+      });
+      return res.data as GenericResponseData<any>;
+    },
+
+    async deleteWallet(walletId: string) {
+      const res = await api.delete("/tind_tracking/wallets", {
+        data: { walletId },
+        withCredentials: true,
+      });
+      return res.data as GenericResponseData<any>;
+    },
+
     async fetchWalletSummary() {
       this.loading = true;
       try {

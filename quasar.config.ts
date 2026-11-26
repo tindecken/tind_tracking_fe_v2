@@ -20,7 +20,7 @@ export default defineConfig((ctx) => {
       vueRouterMode: "hash",
       defineEnv: {
         API_URL: ctx.dev
-          ? "http://localhost:8787"
+          ? "https://tindapi.tindecken.com"
           : "https://tindapi.tindecken.com",
       },
     },
