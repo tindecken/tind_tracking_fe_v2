@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(npx vue-tsc --noEmit)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

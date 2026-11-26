@@ -68,26 +68,6 @@
       :disable="!!form.mustPayTransactionId"
     />
 
-    <q-select
-      v-model="form.categoryId"
-      :options="categoryOptions"
-      label="Category"
-      option-value="id"
-      option-label="name"
-      emit-value
-      map-options
-      clearable
-      dense
-    />
-
-    <q-input
-      v-model="currentMonthPeriodName"
-      label="Month Period"
-      readonly
-      disable
-      dense
-    />
-
     <q-input
       v-model="form.date"
       type="date"
@@ -149,14 +129,8 @@ const delegatedWalletOptions = computed(() =>
   store.wallets.filter(w => w.isDelegated)
 );
 
-const categoryOptions = computed(() => store.categories);
-
 const mustPayOptions = computed(() =>
   store.mustPayItems.filter(m => m.remainingAmount !== 0)
-);
-
-const currentMonthPeriodName = computed(
-  () => store.currentMonthPeriod?.name ?? ""
 );
 
 const maxDate = today();
